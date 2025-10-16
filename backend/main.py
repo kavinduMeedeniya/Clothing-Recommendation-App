@@ -11,7 +11,7 @@ app = FastAPI(title="Clothing Recommendation Multi-Agent System")
 # CORS Middleware: Allow requests from React dev server
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # Add your production frontend URL here later
+    allow_origins=["https://clothing-recommendation-fashion.onrender.com"],  # Add your production frontend URL here later
     allow_credentials=True,
     allow_methods=["*"],  # Allows GET, POST, etc.
     allow_headers=["*"],  # Allows all headers (e.g., Content-Type)
