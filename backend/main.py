@@ -8,13 +8,16 @@ from agents.summary_agent import generate_summary
 
 app = FastAPI(title="Clothing Recommendation Multi-Agent System")
 
-# CORS Middleware: Allow requests from React dev server
+# CORS Middleware: Allow requests from local dev and your live frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["https://clothing-recommendation-fashion.onrender.com"],  # Add your production frontend URL here later
+    allow_origins=[
+        "http://localhost:3000", 
+        "https://clothing-recommendation-fashion.onrender.com"  # Your live frontend URL
+    ],
     allow_credentials=True,
-    allow_methods=["*"],  # Allows GET, POST, etc.
-    allow_headers=["*"],  # Allows all headers (e.g., Content-Type)
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 class UserInput(BaseModel):
