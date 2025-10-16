@@ -34,7 +34,6 @@ body {
   font-weight: 300;
   margin-bottom: 40px;
   color: #888;
-  text-align: center;
 }
 .footer_footfash-cta {
   display: inline-flex;
@@ -94,13 +93,11 @@ body {
   color: #666;
   margin-bottom: 15px;
   letter-spacing: 1px;
-  text-align: center;
 }
 .footer_footfash-conf-description {
   font-size: clamp(14px, 3.5vw, 15px);
   line-height: 1.8;
   color: #888;
-  text-align: center;
 }
 @media (max-width: 1024px) {
   .footer_footfash-container {
