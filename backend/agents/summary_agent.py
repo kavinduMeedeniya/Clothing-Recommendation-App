@@ -1,8 +1,7 @@
 import json
 import os
 from dotenv import load_dotenv
-from google import genai
-from google.genai import types
+import google.generativeai as genai
 
 load_dotenv()
 
@@ -10,7 +9,8 @@ api_key = os.getenv("GEMINI_API_KEY")
 if not api_key:
     raise ValueError("GEMINI_API_KEY not set in .env file. Please add your key and restart.")
 
-client = genai.Client(api_key=api_key)
+genai.configure(api_key=api_key)
+model = genai.GenerativeModel('gemini-1.5-flash')
 
 def generate_summary(sentiment: dict, recommendations: list) -> str:
     """
@@ -28,10 +28,9 @@ def generate_summary(sentiment: dict, recommendations: list) -> str:
     }}
     """
     
-    response = client.models.generate_content(
-        model='gemini-2.5-flash',
-        contents=prompt,
-        config=types.GenerateContentConfig(
+    response = model.generate_content(
+        prompt,
+        generation_config=genai.types.GenerationConfig(
             response_mime_type="application/json",
             temperature=0.2
         )
